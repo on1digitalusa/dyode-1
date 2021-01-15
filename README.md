@@ -207,11 +207,47 @@ Add the theme file in (Sections); place where ever desired for customizer. In th
 <b>2. Use the snippet below to check for the image; then load via shopify admin 
 
 ```html
-{% if collection.image %}
-	<div class="collection-banner">
-		{{ collection.image | img_url: 'medium'}}
-	</div>
-{% endif %}
+{% if section.settings.parallax %}data-parallax="true"{% endif %}> 
+{%- if section.settings.collection_image_enable and collection.image -%}
+    <div class="collection-hero loading--delayed">
+      {%- if section.settings.parallax -%}
+        <div class="parallax-container">
+          <div
+            class="parallax-image collection-hero__image lazyload"
+            data-bgset="{% include 'bgset', image: collection.image %}"
+            data-sizes="auto">
+          </div>
+        </div>
+      {%- else -%}
+        {%- assign img_url = collection.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+        <img class="collection-hero__image image-fit lazyload"
+          src=""
+          data-src="{{ img_url }}"
+          data-aspectratio="{{ collection.image.aspect_ratio }}"
+          data-sizes="auto"
+          data-parent-fit="cover"
+          alt="{{ collection.image.alt | escape }}">
+        <noscript>
+          <img class="collection-hero__image image-fit"
+            src="{{ collection.image | img_url: '1400x' }}"
+            alt="{{ collection.image.alt | escape }}">
+        </noscript>
+      {%- endif -%}
+
+      <div class="collection-hero__content">
+        <div class="page-width">
+          <header class="section-header section-header--hero">
+            <h1 class="section-header__title section-header__title--medium">
+              <div class="animation-cropper">
+                <div class="animation-contents">
+                  {{ collection.title }}
+                </div>
+              </div>
+            </h1>
+          </header>
+        </div>
+      </div>
+    </div>
 ```
 
 <b>3. 
