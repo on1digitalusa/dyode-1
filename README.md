@@ -282,7 +282,7 @@ Add the theme file in (Sections); place where ever desired for customizer. In th
 	{{% assign blueshirtTitle = Blue T-Shirt %}}
 	{{% assign blueshirtHandle = blue-t-shirt %}}
 	{{% assign blueshirtUrl = /products/blue-t-shirt %}}
-	{{% assign blueshirtImage = 'blue-t-shirt.jpg' | asset_url %}}
+	{{% assign blueshirtImage = "blue-t-shirt.jpg" | asset_url %}}
 
 {% endif %}
 ```
