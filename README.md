@@ -251,27 +251,57 @@ Add the theme file in (Sections); place where ever desired for customizer. In th
 ```
 
 <b>3. 
-
-```html
-<ul class="pagination">
-
-{% unless paginate.previous.is_link %}
-	<a>Previous</a>
-	{% else %}
-	<a href="{{paginate.previous.url}}">Previous</a>
-{% endunless %}
-
-<li class="pagination_pages">
-	{{ 'general.pagination.current_page' | t: current: paginate.current_page, total: paginate.pages }}
-</li>
-
-{% unless paginate.next.is_link %}
-	<a>Next</a>
-	{% else %}
-	<a href="{{paginate.next.url}}">Next</a>
-{% endunless %}
-</ul>
-```
+Custom pagination. Add assets, 'icon-chevron-left', and 'icon-chevron-right'
+	
+	```html
+<div id="pagination" class="clearfix">
+    <ul class="pagination">
+        {% if paginate.previous %}
+            <li class="pagination_previous">
+                <a href="{{ paginate.previous.url }}" title="{{ paginate.previous.title }}">
+                   {% include 'icon-chevron-left' %}
+                </a>
+            </li>
+        {% else %}
+            <li class="pagination_previous disabled">
+                <span>
+                    {% include 'icon-chevron-left' %}
+                </span>
+            </li>
+        {% endif %}
+        {% for part in paginate.parts %}
+            {% if part.is_link %}
+                <li>
+                    <a href="{{ part.url }}" title="">{{ part.title }}</a>
+                </li>
+            {% else %}
+                {% if part.title == paginate.current_page %}
+                    <li class="active"><span>{{ part.title }}</span></li>
+                {% else %}
+                    <li><span>{{ part.title }}</span></li>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+        {% if paginate.next %}
+            <li class="pagination_next">
+                <a href="{{ paginate.next.url }}" title="{{ paginate.next.title }}">
+                {% include 'icon-chevron-right' %}
+                </a>
+            </li>
+        {% else %}
+            <li class="pagination_next disabled">
+                <span>
+                {% include 'icon-chevron-right' %}
+                </span>
+            </li>
+        {% endif %}
+    </ul>
+</div>
+{% if paginate.pages > 1 %}
+<div class="clearfix">
+  <a href="{{collection.url}}" class="view-all-collection">View All</a>
+</div>
+{% endif %}
 
 <b>4. 
   
