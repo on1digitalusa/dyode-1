@@ -337,10 +337,16 @@ Custom pagination. Add assets, 'icon-chevron-left', and 'icon-chevron-right'
 	{% endif %}
 {% endfor %}
 
-<b> 
-2. Section-2 
-
+<b>Section-2
+	
 Please see - https://codepen.io/on1digital/live/XWjwpea
 Please see - https://gist.github.com/on1digitalusa/ce6090663795b7fbbc7880487d318940
+	```html
+
+
+
+
+
+
 
 
