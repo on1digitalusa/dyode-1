@@ -336,3 +336,8 @@ Custom pagination. Add assets, 'icon-chevron-left', and 'icon-chevron-right'
 		{% assign denim = "jeans" %}
 	{% endif %}
 {% endfor %}
+
+# dyode-2
+
+Please see - https://codepen.io/on1digital/live/XWjwpea
+Please see - https://gist.github.com/on1digitalusa/ce6090663795b7fbbc7880487d318940
