@@ -250,7 +250,7 @@ Add the theme file in (Sections); place where ever desired for customizer. In th
     </div>
 ```
 
-<b>3. 
+<b>3. Using liquid code and HTML, create a simple pagination container, "< 1 2 ... 5 >".
 Custom pagination. Add assets, 'icon-chevron-left', and 'icon-chevron-right'
 	
 	```html
@@ -303,9 +303,12 @@ Custom pagination. Add assets, 'icon-chevron-left', and 'icon-chevron-right'
 </div>
 {% endif %}
 
-<b>4. 
+```
+
+<b> 4. Using liquid code, access the product named "Blue T-Shirt". Store the id, title, handle, price, url, and image in variables.
   
 ```html
+
 {% if product.title == 'Blue T-shirt" %}
 
 	{{% assign blueshirtId = 123 %}}
@@ -317,9 +320,14 @@ Custom pagination. Add assets, 'icon-chevron-left', and 'icon-chevron-right'
 {% endif %}
 ```
 
-<b>5.
+<b> 5. Using liquid code, create a key:value array using the list below. Loop through the array. Upon key type, store the value in a variable to be used later:
+	fruit:apple
+	vegetable:carrot
+	cloth:t-shirt
+	denim:jeans
 
 ```html
+
 {% assign dyodeArray = "fruit, vegetable, cloth, denim" | split: ',' %}
 
 {% for key in dyodeArray %}
@@ -337,11 +345,13 @@ Custom pagination. Add assets, 'icon-chevron-left', and 'icon-chevron-right'
 	{% endif %}
 {% endfor %}
 
+```
 <b>Section-2
+	```html
 	
 Please see - https://codepen.io/on1digital/live/XWjwpea
 Please see - https://gist.github.com/on1digitalusa/ce6090663795b7fbbc7880487d318940
-	```html
+	
 
 
 
