@@ -346,7 +346,7 @@ Custom pagination. Add assets, 'icon-chevron-left', and 'icon-chevron-right'
 {% endfor %}
 
 ```
-<b>Section-2
+<b>Section-2 (develop a static home page): 
 ```html
 	
 Please see - https://codepen.io/on1digital/live/XWjwpea
